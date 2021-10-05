@@ -1,0 +1,83 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class="jumbtron">
+  <div class="row">
+
+    <div class="col-md-4 border-right">
+        <div class="ml-3 mt-2">
+          <h3 class="mt-2 ml-5 border-bottom">User Info</h3>
+          <div class="ml-5 mt-3 border-bottom">
+            <h4 *ngIf="currentUser!=null">name: {{currentUser.user_name}}</h4>
+            <h4 *ngIf="currentUser!=null">surname: {{currentUser.user_surname}}</h4>
+            <h4 *ngIf="currentUser!=null">email: {{currentUser.user_email}}</h4>
+            <h4 *ngIf="currentUser!=null">adress: {{currentUser.user_adress}}</h4>
+          </div>
+          <div class="ml-5 mt-3">
+            <h5>your asset count: {{assetService.currentUser_assetCount}}</h5>
+            <h5>total worth of your assets: {{assetService.currentUser_totalAssetWorth}}$</h5> 
+          </div>  
+        </div>     
+    </div>
+
+    <div class="col-md-7">
+      <h3 class="mt-2 border-bottom">User Assets</h3>
+      <form id="topForm" class="form-inline mb-2">
+        <button type="submit" class="btn btn-success mt-2 " (click)="onPost()">
+          <i class="far fa-plus-square" (click)="onPost()"></i> Add New</button> 
+        <button type="submit" class="btn btn-warning mt-2 ml-3" (click)="onPrint()">
+          <i class="fas fa-table" (click)="onPrint()"></i> Export to Excel</button>  
+      </form> 
+  
+      <table id="table" class="table">
+        <tr class="table-info">
+          <th>PROVINCE</th>
+          <th>DISTRINCT</th>
+          <th>NEIGHBOURHOOD</th>
+          <th>WORTH</th>
+          <th>ATTRIBUTE</th>
+          <th>ADRESS</th>
+          <th>#</th>
+        </tr>
+      <tbody>
+        <tr *ngFor="let ts of assetService.list_asset | paginate: { 
+                              itemsPerPage: pagination.pageSize, 
+                              currentPage: pagination.page, 
+                              totalItems: pagination.count }">  
+          <td>{{ts.province_name}}</td>
+          <td>{{ts.district_name}}</td>
+          <td>{{ts.neighbourhood_name}}</td>
+          <td>{{ts.worth}}</td>
+          <td>{{ts.attribute}}</td>
+          <td>{{ts.adress}}</td>
+          <td>
+            <div class="btn-group">
+              <button type="submit" class="btn btn-dark"><i class="fa fa-trash btn-sm" (click)="onDelete(ts.asset_id)"></i></button>
+              <button type="submit" class="btn btn-primary"><i class="fas fa-edit btn-sm" (click)="onUpdate(ts)"></i></button>
+            </div>                     
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

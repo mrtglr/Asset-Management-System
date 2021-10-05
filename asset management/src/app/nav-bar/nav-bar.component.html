@@ -1,0 +1,38 @@
+<header class = "bg-header">
+  <nav id="navbar">
+    <h1 *ngIf="this.getPath()=='/logList'"><i class="fas fa-server"></i> Log List</h1>
+    <h1 *ngIf="this.getPath()=='/kullaniciList'"><i class="fas fa-user"></i> User List</h1>
+    <h1 *ngIf="this.getPath()=='/tasinmazList'"><i class="fas fa-landmark"></i> Asset List</h1>
+    <h1 *ngIf="this.getPath()=='/userProfile'"><i class="fas fa-user"></i> User Profile</h1>
+    <div>
+      <a *ngIf="currentUserRole=='true'" class="mr-5" href="logList">Log Operations</a>
+      <a *ngIf="currentUserRole=='true'" class="mr-5" href="kullaniciList">User Operations</a>
+      <a *ngIf="currentUserRole=='true'" class="mr-5" href="tasinmazList">Asset Operations</a>
+      <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">
+        <i class="fas fa-user"></i></button>
+    </div>     
+      
+  </nav>
+</header>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel" *ngIf="currentUser!=null">Signed as {{currentUser.user_email}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 *ngIf="currentUser!=null">Name: {{currentUser.user_name}}</h5>
+        <h5  *ngIf="currentUser!=null">Surname: {{currentUser.user_surname}}</h5>
+        <h5 *ngIf="currentUser!=null && currentUser.user_role==true">User Role: Admin</h5>
+        <h5 *ngIf="currentUser!=null && currentUser.user_role==false">User Role: User</h5>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark" (click)="logout()" data-dismiss="modal"><i class="fas fa-sign-out-alt"> Log out</i></button>
+      </div>
+    </div>
+  </div>
+</div>

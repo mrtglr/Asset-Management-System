@@ -1,0 +1,181 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+/*colors*/
+
+.bg-header{
+    background: #232930;   
+}
+
+/*align*/
+
+:root {
+
+    --first-color: #fa9600;
+    --input-color: #5a5a5a;
+    --border-color: #19191a;
+
+    --body-font: 'Roboto', sans-serif;
+    --normal-font-size: 0.95rem;
+    --small-font-size: .75rem;    
+}
+
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+h1{
+    margin: 0;
+    color: rgb(226, 226, 226);
+}
+
+h2{
+    margin: 0;
+    color: #e0e0e0;
+}
+
+th {
+    margin: 0;
+    color: rgb(214, 212, 212);
+}
+
+td {
+    margin: 0;
+    color: rgb(36, 36, 36);
+}   
+
+#navbar_login {
+
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+    height: 70px;
+}
+
+/*forms*/
+
+.l-form {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form {
+    width: 500px;
+    height: auto;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(14, 14, 14, 0.2);
+    background-color: #3c3f3f;
+}
+
+.modleForm {
+    width: 60%;
+    height: auto;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(14, 14, 14, 0.2);
+    background-color: #3c3f3f;
+}
+
+/*Input focus move up label*/
+
+.form_input:focus + .form_label{
+    top: -.9rem;
+    left: .10rem;
+    color: var(--first-color);
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    z-index: 10;
+}
+
+.form_input:not(:placeholder-shown).form_input:not(:focus)+ .form_label{
+    top: -.9rem;
+    left: .8rem;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    z-index: 10;
+}
+
+.form_input:focus{
+    border: 1.5px solid var(--first-color);
+}
+
+/*tasinmaz list table*/
+
+th {
+    color: #19191a;
+}
+
+tbody tr {
+  text-align: center;
+}
+
+/*add-kullanici*/
+
+.insrt_user {
+    width: 500px;
+    height: auto;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(78, 78, 78, 0.2);
+    background-color: #a8d4af;
+}
+
+input.ng-touched.ng-invalid{
+    border-color: #dc3545;
+}
+
+input.ng-valid{
+    border-color: #28a745;
+}
+
+.topMenu {
+    display: inline;
+}
+
+label {
+    color: #9cafc7;
+}
+
+.mycontent-left {
+    border-right: 1px dashed #333;
+  }
+
+/* Pagination links */
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  /* Style the active/current link */
+  .pagination a.active {
+    background-color: rgb(0, 68, 255);
+    color: white;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+  .my-pagination .ngx-pagination .current {
+    background: #db9600;
+  }

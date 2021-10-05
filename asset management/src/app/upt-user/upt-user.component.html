@@ -1,0 +1,93 @@
+<div class="l-form">
+  <form #form="ngForm" class="modleForm" id="upt_user" autocomplete="off" (submit)="onSubmit()">
+    <h2 class="form_title">Update User</h2>
+    
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="username.valid" 
+            [class.red-icon]="username.invalid && username.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>Name</label>
+            <input class="form-control" name="username" #username="ngModel" [(ngModel)]="service.formDataUser.user_name" 
+            id="user_name" type="text" placeholder="User name" required>
+          </div>
+        </div>
+          
+      <div class="form-group">
+        <div>
+          <i [class.green-icon]="usersurname.valid" 
+          [class.red-icon]="usersurname.invalid && usersurname.touched"></i>
+        </div>         
+        <div class="insrt_div">
+          <label>Surname</label>
+          <input class="form-control" name="usersurname" #usersurname="ngModel" [(ngModel)]="service.formDataUser.user_surname" 
+          id="user_surname" type="text" placeholder="Surname" required>
+        </div>
+      </div>
+          
+      <div class="form-group">
+        <div>
+          <i [class.green-icon]="useremail.valid" 
+          [class.red-icon]="useremail.invalid && useremail.touched"></i>
+        </div>         
+        <div class="insrt_div">
+          <label>E-Mail</label>
+          <input class="form-control" name="useremail" #useremail="ngModel" [(ngModel)]="service.formDataUser.user_email" 
+          id="user_email" type="email" placeholder="User e-mail" required>
+        </div>
+      </div>
+          
+      <div class="form-group">
+        <div>
+          <i [class.green-icon]="userrole.valid" 
+          [class.red-icon]="userrole.invalid && userrole.touched"></i>
+        </div>         
+        <div class="insrt_div">
+          <label>Role</label>
+          <select class="form-control" name="userrole" #userrole="ngModel" [(ngModel)]="service.formDataUser.user_role" 
+          id="user_role" required>
+            <option value="true">Admin</option>
+            <option value="false">User</option>
+          </select>
+        </div>
+      </div>
+    </div> 
+          
+    <div class="col-md-7">
+      <div class="form-group">
+        <div>
+          <i [class.green-icon]="useradress.valid" 
+          [class.red-icon]="useradress.invalid && useradress.touched"></i>
+        </div>         
+        <div class="insrt_div">
+          <label>Adress</label>
+          <input class="form-control" name="useradress" #useradress="ngModel" [(ngModel)]="service.formDataUser.user_adress" 
+          id="user_adress" type="text" placeholder="User adress" required>
+        </div>
+      </div>
+          
+      <div class="form-group">
+        <div>
+          <i [class.green-icon]="userpsw.valid" 
+          [class.red-icon]="userpsw.invalid && userpsw.touched"></i>
+        </div>         
+        <div class="insrt_div">
+          <i class="fas fa-info-circle mr-3" data-toggle="tooltip" data-placement="right" title={{passwordInfo}}></i>
+          <label>Password <i [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" (click)="showPassword()"></i></label>
+          <input class="form-control" name="userpsw" #userpsw="ngModel" [(ngModel)]="service.formDataUser.user_password" 
+          id="user_password" [type]="show_button ? 'text' : 'password'" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W).{8,}" placeholder="User password" required>
+        </div>
+      </div>
+        
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+        <i class="fas fa-retweet"></i>  Update</button>
+     
+        <button class="btn btn-link btn-lg btn-block" (click)="backtoList()">
+          <i class="fas fa-arrow-circle-left"></i>  User List</button>
+    </div>
+    </div>     
+  </form>
+</div>

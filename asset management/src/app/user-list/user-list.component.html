@@ -1,0 +1,50 @@
+<app-nav-bar></app-nav-bar>
+
+<form id="topForm" class="form-inline mb-2">
+  <button type="submit" class="btn btn-success mt-2 ml-3  " (click)="onPost()">
+    <i class="far fa-plus-square" (click)="onPost()"></i> Add New</button>     
+    <input type="text" id="search" (keyup)="onSearch()" class="form-control mt-2 ml-3" placeholder="Search user...">  
+    <button type="submit" class="btn btn-warning mt-2 ml-3" (click)="onPrint()">
+    <i class="fas fa-table" (click)="onPrint()"></i> Export to Excel</button>   
+</form>    
+
+<table id="table" class="table">
+    <tr class="table-info">
+      <th>ID</th>
+      <th>NAME</th>
+      <th>SURNAME</th>
+      <th>E-MAIL</th>
+      <th>ROLE</th>
+      <th>ADRESS</th>
+      <th></th>
+    </tr>
+  <tbody>
+    <tr *ngFor="let user of service.list_user | paginate: { 
+                          itemsPerPage: pagination.pageSize, 
+                          currentPage: pagination.page, 
+                          totalItems: pagination.count }">  
+      <td>{{user.user_id}}</td>
+      <td>{{user.user_name}}</td>
+      <td>{{user.user_surname}}</td> 
+      <td>{{user.user_email}}</td>
+      <td *ngIf="user.user_role == true">Admin</td>
+      <td *ngIf="user.user_role == false">User</td>
+      <td>{{user.user_adress}}</td>
+      <td>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-dark"><i class="fa fa-trash btn-sm" (click)="onDelete(user.user_id)"></i></button>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-edit btn-sm" (click)="onUpdate(user)"></i></button>
+        </div>          
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <pagination-controls class="my-pagination" (pageChange)="onPageChange($event)"></pagination-controls>
+</div>
+
+
+
+
+

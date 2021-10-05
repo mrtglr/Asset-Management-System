@@ -1,0 +1,102 @@
+<div class="l-form">  
+  <form #form="ngForm" class="modleForm" id="insrt_asset" autocomplete="off" (submit)="onSubmit()">
+    <h2 class="form_title">Add New Asset</h2>
+
+    <div class="row">
+      <div class="col-md-5">        
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="province.valid" [class.red-icon]="province.invalid && province.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>Province</label>
+            <select class="form-control" (change)="getDistrict()" name="province" #province="ngModel" [(ngModel)]="service.formDataAsset.province_name" 
+              id="province" required>
+              <option *ngFor="let province of service_province.list_province" value={{province.province_id}}>{{province.province_name}}</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="district.valid" [class.red-icon]="district.invalid && district.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>District</label>
+            <select class="form-control" (change)="getNeighbourhood()" name="district" #district="ngModel" [(ngModel)]="service.formDataAsset.district_name" 
+              id="district" required>
+              <option *ngFor="let district of service_district.list_district" value={{district.district_id}}>{{district.district_name}}</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="neighbourhood.valid" [class.red-icon]="neighbourhood.invalid && neighbourhood.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>Neighbourhood</label>
+            <select class="form-control"  name="neighbourhood" #neighbourhood="ngModel" [(ngModel)]="service.formDataAsset.neighbourhood_name" 
+              id="neighbourhood" required>   
+              <option *ngFor="let neighbourhood of service_neighbourhood.list_neighbourhood" value={{neighbourhood.neighbourhood_id}}>{{neighbourhood.neighbourhood_name}}</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="worth.valid" [class.red-icon]="worth.invalid && worth.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>Worth</label>
+            <input class="form-control" name="worth" #worth="ngModel" [(ngModel)]="service.formDataAsset.worth" 
+            id="worth" type="number" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) 
+            ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="Worth" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7">    
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="attribute.valid" [class.red-icon]="attribute.invalid && attribute.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>Attribute</label>
+            <input class="form-control" name="attribute" #attribute="ngModel" [(ngModel)]="service.formDataAsset.attribute" 
+            id="attribute" type="text" placeholder="Attribute" required>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <div>
+            <i [class.green-icon]="adress.valid" [class.red-icon]="adress.invalid && adress.touched"></i>
+          </div>         
+          <div class="insrt_div">
+            <label>Adress</label>
+            <input class="form-control" name="adress" #adress="ngModel" [(ngModel)]="service.formDataAsset.adress" 
+            id="adress" type="text" placeholder="Adress" required>
+          </div>
+        </div>
+
+        <div *ngIf="currentUserRole.match('true')" class="form-group">
+          <div>
+            <i [class.green-icon]="user_id.valid" [class.red-icon]="user_id.invalid && user_id.touched"></i>
+          </div> 
+          <div class="insrt_div">
+            <label>Owner ID</label>
+            <select class="form-control" name="user_id" #user_id="ngModel" [(ngModel)]="service.formDataAsset.user_id" 
+              id="user_id" required>
+              <option *ngFor="let user of userService.list_user" value={{user.user_id}}>({{user.user_id}}) {{user.user_name}} {{user.user_surname}}</option>
+            </select>
+          </div>   
+        </div>
+        
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+          <i class="fas fa-warehouse"></i>  Add</button>       
+        <button class="btn btn-link btn-lg btn-block" (click)="backtoList()">
+          <i class="fas fa-arrow-circle-left"></i>  Asset List</button>
+      </div>
+    </div>
+  </form>
+</div>

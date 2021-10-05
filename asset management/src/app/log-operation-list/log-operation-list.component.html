@@ -1,0 +1,37 @@
+<app-nav-bar></app-nav-bar>
+
+<form id="topForm" class="form-inline mb-2">  
+  <input type="text" id="search" (keyup)="onSearch()" class="form-control mt-2 ml-3" placeholder="Search Log..."> 
+  <button type="submit" class="btn btn-warning mt-2 ml-3" (click)="onPrint()">
+    <i class="fas fa-table" (click)="onPrint()"></i> Export to Excel</button>   
+</form> 
+
+<table id="table" class="table">
+    <tr class="table-info">
+      <th>SITUATION</th>
+      <th>USER</th>
+      <th>PROCESS</th>
+      <th>DATE/TIME</th>
+      <th>IP</th>
+      <th>STATEMENT</th>
+    </tr>
+  <tbody >
+    <tr *ngFor="let log of service.list_logOperations | paginate: { 
+                          itemsPerPage: pagination.pageSize, 
+                          currentPage: pagination.page, 
+                          totalItems: pagination.count }">   
+      <td *ngIf="log.log_situation == true">Successful</td>
+      <td *ngIf="log.log_situation == false">Unsuccessful</td>
+      <td>{{log.user_id}}</td>
+      <td>{{log.process}}</td>
+      <td>{{log.date_time}}</td>
+      <td>{{log.user_ip}}</td>
+      <td>{{log.statement}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <pagination-controls class="my-pagination" (pageChange)="onPageChange($event)"></pagination-controls>
+</div>
+
