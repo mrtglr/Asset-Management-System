@@ -1,4 +1,4 @@
-# Asset-Management-System_WEB
+# Asset-Management-System
 Full-stack developed web application that makes asset management using Angular 7 CRUD, Postgresql and Asp.Net Core Web API.
 
 Back-End Sample Pictures:
