@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using AuthLoginDemo_bnd.Models;
 
-namespace AuthLoginDemo_bnd.Helper
+namespace AuthLoginDemo_bnd.Helpers
 {
     public class Helper
     {
@@ -22,7 +22,7 @@ namespace AuthLoginDemo_bnd.Helper
         }
 
         //LOG GENERATOR
-        public static void createLog(AuthenticationContext _context, bool log_situation, int user_id, string process, string statement)
+        public static void createLog(AuthenticationContext _context, bool log_situation, string user_id, string process, string statement)
         {        
             DateTime localDate = DateTime.Now;
             LogOperations logger = new LogOperations();
