@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mert Güler\\Desktop\\Web\\asset management\\assetManagementBackend\\assetManagementBackend.csproj": {}
+    "c:\\Users\\hmert\\Desktop\\Codes\\Web\\.Asp.Net\\Asset-Management-System\\asset management\\assetManagementBackend\\assetManagementBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mert Güler\\Desktop\\Web\\asset management\\assetManagementBackend\\assetManagementBackend.csproj": {
+    "c:\\Users\\hmert\\Desktop\\Codes\\Web\\.Asp.Net\\Asset-Management-System\\asset management\\assetManagementBackend\\assetManagementBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mert Güler\\Desktop\\Web\\asset management\\assetManagementBackend\\assetManagementBackend.csproj",
+        "projectUniqueName": "c:\\Users\\hmert\\Desktop\\Codes\\Web\\.Asp.Net\\Asset-Management-System\\asset management\\assetManagementBackend\\assetManagementBackend.csproj",
         "projectName": "assetManagementBackend",
-        "projectPath": "C:\\Users\\Mert Güler\\Desktop\\Web\\asset management\\assetManagementBackend\\assetManagementBackend.csproj",
-        "packagesPath": "C:\\Users\\Mert Güler\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mert Güler\\Desktop\\Web\\asset management\\assetManagementBackend\\obj\\",
+        "projectPath": "c:\\Users\\hmert\\Desktop\\Codes\\Web\\.Asp.Net\\Asset-Management-System\\asset management\\assetManagementBackend\\assetManagementBackend.csproj",
+        "packagesPath": "C:\\Users\\hmert\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\hmert\\Desktop\\Codes\\Web\\.Asp.Net\\Asset-Management-System\\asset management\\assetManagementBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mert Güler\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hmert\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
