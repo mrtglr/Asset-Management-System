@@ -156,8 +156,8 @@ namespace AuthLoginDemo_bnd.Migrations
                     b.Property<string>("statement")
                         .HasColumnType("text");
 
-                    b.Property<string>("user_id")
-                        .HasColumnType("text");
+                    b.Property<int>("user_id")
+                        .HasColumnType("integer");
 
                     b.Property<string>("user_ip")
                         .HasColumnType("text");

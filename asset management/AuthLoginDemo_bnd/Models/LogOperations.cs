@@ -8,7 +8,7 @@ namespace AuthLoginDemo_bnd.Models
         [Key]
         public int log_id {get; set;}
         public bool log_situation {get; set;}
-        public string user_id {get; set;}
+        public int user_id {get; set;}
         public string process {get; set;}
         public DateTime date_time {get; set;}
         public string user_ip {get; set;}

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using AuthLoginDemo_bnd.Helpers;
 using AuthLoginDemo_bnd.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -21,12 +20,10 @@ namespace AuthLoginDemo_bnd.Controllers
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationSettings _appSettings;
-        private readonly AuthenticationContext _context;
 
-        public ApplicationUserController(AuthenticationContext context, UserManager<ApplicationUser> userManager, 
+        public ApplicationUserController(UserManager<ApplicationUser> userManager, 
         SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings)
         {
-            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _appSettings = appSettings.Value;
@@ -63,7 +60,7 @@ namespace AuthLoginDemo_bnd.Controllers
         public async Task<IActionResult> Login(LoginModel model) 
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
-            if(user != null && user.isActive && await _userManager.CheckPasswordAsync(user, model.Password))
+            if(user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var tokenDescriptor = new SecurityTokenDescriptor 
                 {
@@ -81,16 +78,8 @@ namespace AuthLoginDemo_bnd.Controllers
                 var token = tokenHandler.WriteToken(securityToken);
                 return Ok(new { token });
             }
-            else if(!user.isActive) {
-                return BadRequest(new {message = "User is not active anymore."});
-            }
-            else {
-                user.AccessFailedCount++;
-                Helper.createLog(_context, false, user.Id, "Login", "Username or password is incorrect");
-                await _context.SaveChangesAsync();
+            else
                 return BadRequest(new {message = "Username or password is incorrect."});
-            }
-                
         }
     }
 }
