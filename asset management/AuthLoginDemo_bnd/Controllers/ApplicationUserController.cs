@@ -37,10 +37,7 @@ namespace AuthLoginDemo_bnd.Controllers
             var applicationUser = new ApplicationUser() {
                 UserName = model.UserName,
                 Email = model.Email,
-                FullName = model.Fullname,
-                UserRole = model.UserRole,
-                isActive = true,
-                UserAddress = model.UserAddress
+                FullName = model.Fullname
             };
 
             try
